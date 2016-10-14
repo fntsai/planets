@@ -1,9 +1,12 @@
-# Chapter 1 …
+# Chapter 1 
+In the followin we will talk about
+* how to run pl file.
+* how to control a job on Quest.
 
-## How to run my script
+## This is Section 1
+Following is the scripts for running ? pipeline on Quest.
 
-Use the following scripts to ??
-
+```sh
 /projects/p20742/tools/buildPipelineScripts.draft.pl \
 -o /projects/b1038/Rheumatology/20160725-Bim_Kid-Macs/output/latest/Perlman_FuNien_20160725 \
 -bam /projects/b1038/Rheumatology/20160725-Bim_Kid-Macs/output/latest/Perlman_FuNien_20160725/bam \
@@ -19,15 +22,20 @@ Use the following scripts to ??
 -buildEdgeR 1 \
 -runEdgeR 1 \
 >& /projects/b1038/Rheumatology/20160725-Bim_Kid-Macs/output/Perlman_FuNien_20160725/KidneyMacs_Mouse_EdgeR &
-
+```
 ## How to control job in Quest
-Reference: http://www.it.northwestern.edu/research/user-services/quest/job-management.html
+
+Reference: [Clicl me](http://www.it.northwestern.edu/research/user-services/quest/job-management.html)
 
 To check job status, use
-$    showq -w user=pjh116
-
+```sh
+showq -w user=pjh116
+```
 or simply use
-$    qstat
-
+```sh
+qstat
+```
 To kill a job, use
-$    mjobctl -c <JOB ID>
+```sh
+mjobctl -c <JOB ID>
+```
