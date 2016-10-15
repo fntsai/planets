@@ -47,7 +47,15 @@ Following is the scripts for running pairwise pipeline on Quest.
 
 ## How to control job in Quest
 
-Reference: [Clicl me](http://www.it.northwestern.edu/research/user-services/quest/job-management.html)
+Reference: [Northwestern IT](http://www.it.northwestern.edu/research/user-services/quest/job-management.html)
+This is **bold**. This is *italitc*.
+This is a table:
+
+| C1|C2 |C3 |   |   |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
 
 To check job status, use
 ```sh
