@@ -26,6 +26,7 @@ Following is the scripts for running ? pipeline on Quest.
 ## How to control job in Quest
 
 Update: xxxXXX
+Update: XXXxxx
 
 Reference: [Clicl me](http://www.it.northwestern.edu/research/user-services/quest/job-management.html)
 
