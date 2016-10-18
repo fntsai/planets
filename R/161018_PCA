@@ -1,11 +1,11 @@
-setwd("/Users/FuNien/Documents/2016_RNA-seq/comparisons/20161014/Bim.LysMBim.Trif.8mo")
+setwd("/Users/FuNien/Documents/2016_RNA-seq/comparisons/20161015/Bim.LysMBim.Trif")
 
 ####Set variables for your script###
 
 #Assigns the name of a file that contain your counts
 #Should be organized as a tab-delimited file with your experimental conditions as columns and your genes as rows
 #The second row should contain your group names
-counts_file <- "Bim.LysMBim.Trif.htseq.normCounts.txt"
+counts_file <- "trimmed.Bim.LysMBim.Trif.normCounts.txt"
 
 #Assigns the name of a file that contains your groups in the desired order
 group_file <- "all.8mo.macs.txt"
