@@ -2,6 +2,7 @@
 In the followin we will talk about
 * how to run pl file.
 * how to control a job on Quest.
+* how to backup a folder (copy).
 
 ## This is Section 1
 Following is the scripts for running alignment pipeline on Quest.
@@ -69,3 +70,35 @@ To kill a job, use
 ```sh
 mjobctl -c <JOB ID>
 ```
+## How to copy (backup) the content of a folder
+
+Command is simple, here i provide two samples to show how to copy entire directory in linux.
+
+```
+cp -r sourcedir targetdir
+```
+
+for instance,
+
+1. Copy anything from current directory to /usr/local/download
+
+```
+cp -r * /usr/local/download
+```
+
+2. Copy whole directory (include content) /usr/local/fromdownload to target /usr/local/download. This can be used for backing up a folder.
+
+```
+cp -r  /usr/local/fromdownload  /usr/local/download
+```
+
+
+**Note** 
+
+If `cp` failed to perform the copy, for example, an existing destination file cannot be opened, then try using `cp -rf` instead of `cp -r`, which shall remove te existing destination file and redo the copy.
+```
+cp -rf
+```
+
+
+
