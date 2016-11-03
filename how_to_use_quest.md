@@ -86,11 +86,12 @@ for instance,
 cp -r * /usr/local/download
 ```
 
-2. Copy whole directory (include content) /usr/local/fromdownload to target /usr/local/download
+2. Copy whole directory (include content) /usr/local/fromdownload to target /usr/local/download. This can be used for backing up a folder.
 
 ```
 cp -r  /usr/local/fromdownload  /usr/local/download
 ```
+
 
 **Note** 
 
