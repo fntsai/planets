@@ -72,7 +72,7 @@ mjobctl -c <JOB ID>
 ```
 ## How to copy (backup) the content of a folder
 
-Command is simple, here i provide two samples to show how to copy entire directory in linux.
+Command is simple, here I provide two samples to show how to copy entire directory in linux.
 
 ```
 cp -r sourcedir targetdir
@@ -92,6 +92,17 @@ cp -r * /usr/local/download
 cp -r  /usr/local/fromdownload  /usr/local/download
 ```
 
+## How to create a link
+
+Here we show how to create a (soft) link to a folder or a file in linux.
+```
+ln -s <target> <link>
+```
+For example, if we want to create a link, namely `Perlman_2016027` to `20161104_MZM_kidmacs_Perlman_2016027`, then we can use
+
+```
+ln -s 20161104_MZM_kidmacs_Perlman_2016027 Perlman_2016027
+```
 
 **Note** 
 
