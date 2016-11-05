@@ -92,6 +92,13 @@ cp -r * /usr/local/download
 cp -r  /usr/local/fromdownload  /usr/local/download
 ```
 
+**Note** 
+
+If `cp` failed to perform the copy, for example, an existing destination file cannot be opened, then try using `cp -rf` instead of `cp -r`, which shall remove te existing destination file and redo the copy.
+```
+cp -rf
+```
+
 ## How to create a link
 
 Here we show how to create a (soft) link to a folder or a file in linux.
@@ -104,12 +111,7 @@ For example, if we want to create a link, namely `Perlman_2016027` to `20161104_
 ln -s 20161104_MZM_kidmacs_Perlman_2016027 Perlman_2016027
 ```
 
-**Note** 
 
-If `cp` failed to perform the copy, for example, an existing destination file cannot be opened, then try using `cp -rf` instead of `cp -r`, which shall remove te existing destination file and redo the copy.
-```
-cp -rf
-```
 
 
 
