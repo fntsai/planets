@@ -1,0 +1,20 @@
+#!/bin/bash
+#MSUB -A b1042
+#MSUB -q genomics
+#MSUB -l walltime=24:00:00
+#MSUB -l nodes=1:ppn=4
+#MSUB -m a
+#MSUB -j oe
+#MSUB -N rseqc
+
+# load modules you need to use
+module load python
+module load R
+
+# Set your working directory
+bam=/projects/b1063/POP3Colitis/output/POP3Colitis/bam/M32-ColonDC-DSSd2-POP3-04.bam
+bed=/projects/b1063/POP3Colitis/output/POP3Colitis/bam/mm10_UCSC_knownGene.bed
+out=/projects/b1063/POP3Colitis/output/POP3Colitis/bam/genebody_output
+
+
+geneBody_coverage.py -r $bed -i $bam -o $out
