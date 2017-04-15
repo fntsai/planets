@@ -110,8 +110,12 @@ For example, if we want to create a link, namely `Perlman_2016027` to `20161104_
 ```
 ln -s 20161104_MZM_kidmacs_Perlman_2016027 Perlman_2016027
 ```
+## How to compress files into a folder
 
-
+You go the directory of the files that you want to compress
+```
+tar czf target.directory . # "." means all the files in the specified directory 
+```
 
 
 
