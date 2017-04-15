@@ -2,4 +2,12 @@
 GO TO "https://sourceforge.net/projects/rseqc/files/BED/Mouse_Mus_musculus/" to download "mm10_UCSC_knownGene.bed.gz"
 Unzip "mm10_UCSC_knownGene.bed.gz" and put it in your Bam file
 There are 2 ways that you can run coverage
-You can run it for each file, using the script "
+You can run it for each file, using the script "20170414.bed.for.coverage.sh". It is stored in "planets/POP3".
+Put it in the bam file.
+On Terminal, go to your bam folder. Type "MSUB scipt.txt" to submit the job.
+Or you can use the script that generates script for all of the samples at once. This is script stored in "planets/POP3", called
+"1.scriptloop_htseq_genebody.py"
+You can run this locally. On terminal, you type "python script.py"
+You will see all of the ".sh" files corresponding to the sample name of each sample in your Bam folder
+To submit the samples to quest, use "submit.genebody.txt". Put this to the Bam folder.
+On terminal, type "MSUB script.txt"
