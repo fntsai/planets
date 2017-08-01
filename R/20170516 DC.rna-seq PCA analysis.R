@@ -1,28 +1,28 @@
-install.packages("ggplot2")
-install.packages("Cairo")
+#install.packages("ggplot2")
+#install.packages("Cairo")
 source("https://bioconductor.org/biocLite.R")
-biocLite("geneplotter")
-biocLite("edgeR")
+#biocLite("geneplotter")
+#biocLite("edgeR")
 library("Cairo")
 library("edgeR")
 library("ggplot2")
 library("RColorBrewer")
 
 #setwd("~/Desktop/R/Macrophages/")
-setwd("/Users/FuNien/Documents/2016_RNA_seq/20170415_POP3/DC")
+setwd("/Users/FuNien/Documents/2016_RNA_seq/20170415_POP3/M1-M8/R")
 
 ####Set variables for your script###
 
 #Assigns the name of a file that contain your counts
 #Should be organized as a tab-delimited file with your experimental conditions as columns and your genes as rows
 #The second row should contain your group names
-counts_file <- "DC.htseq.normCounts.txt"
+counts_file <- "r.M1-M8.htseq.normCounts.txt"
 
 #Assigns the name of a file that contains your groups in the desired order
-group_file <- "DC.txt"
+group_file <- "MP.Naive.txt"
 
 #Assign a name according to which your output folder and files will be names
-outputname <- "DC"
+outputname <- "MP.Naive"
 
 #Creates the names for your output folder and files based on your outputname variable
 if (file.exists(outputname)==F){
@@ -40,13 +40,14 @@ pca_plot_file_name_2 <- paste(outputname,"/",outputname,"_PC3vPC2_plot.pdf", sep
 pca_plot_title_2 <- paste(outputname, ": PC3 vs PC2", sep="")
 
 #Reads from a tab-delimited file of normalized gene counts
-counts <- read.delim(counts_file, row.names="Symbol", stringsAsFactor=FALSE)
+my.work.path <- "/Users/FuNien/Documents/2016_RNA_seq/20170415_POP3/M1-M8/R"
+counts <- read.delim(file.path(my.work.path, counts_file), row.names="Symbol", stringsAsFactor=FALSE)
 
 #Transposes rows and columns, which is necessary for future manipulations
 transpose.counts <- as.data.frame(t(counts))
 
 #Reads from a file that contains the groups names in the desired order
-group_list <- readLines(group_file)
+group_list <- readLines(file.path(my.work.path, group_file))
 
 #Selects only the groups you included in your group_list file
 counts.selected <- subset(transpose.counts, transpose.counts$Group %in% group_list)
@@ -104,15 +105,38 @@ dfPCA = data.frame(PC1 = counts.pca$x[,1], PC2 = counts.pca$x[,2], PC3 = counts.
 #dfPCA$PC2 <- dfPCA$PC2*-1
 
 
+# Save
+#save.image(file = "wip.RData")
+# Load
+# load("~/Documents/2016_RNA_seq/20170415_POP3/M1-M8/R/wip.RData")
+
+# TEST
+tmp.plot <- (qplot(PC1, PC2, data = dfPCA, color = condition,
+      main = pca_plot_title, size = I(3), 
+      label=rownames(dfPCA), geom=c("text", "auto"))
+  + labs(x = paste0("PC1, Variance Explained: ", round(percentVar[1],4), "%"),
+         y = paste0("PC2, Variance Explained: ", round(percentVar[2],4), "%"))
+  + scale_colour_manual(values=myPal)
+  + theme(aspect.ratio = 1, 
+          panel.grid.minor = element_blank(),
+          panel.background = element_blank(), 
+          axis.line = element_line(colour = "black"),
+          panel.border = element_rect(colour = "black", fill=NA, size=1)
+          ))
+
+if (F)
+{
+  tmp.plot <- qplot(PC1, PC2, data = dfPCA, color = condition,
+         main = pca_plot_title, size = I(6))
+  + labs(x = paste0("PC1, Variance Explained: ", round(percentVar[1],4), "%"),
+         y = paste0("PC2, Variance Explained: ", round(percentVar[2],4), "%"))
+  + scale_colour_manual(values=myPal)
+  + theme(aspect.ratio = 1)
+}
+
 #create plot and output to .png file
 CairoPDF(pca_plot_file_name,height=8,width=8, bg = "transparent")
-(qplot(PC1, PC2, data = dfPCA, color = condition,
-       main = pca_plot_title, size = I(6))
-+ labs(x = paste0("PC1, Variance Explained: ", round(percentVar[1],4), "%"),
-       y = paste0("PC2, Variance Explained: ", round(percentVar[2],4), "%"))
-+ scale_colour_manual(values=myPal)
-+ theme(aspect.ratio = 1)
-)
+(tmp.plot)
 dev.off()
 
 #create plot and output to .png file
