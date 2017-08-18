@@ -1,11 +1,11 @@
 #go to file from your folder
-setwd("/Users/FuNien/Documents/2016_RNA_seq/20170415_POP3/MP/Heatmap")
+setwd("/Users/FuNien/Documents/2016_RNA_seq/20170415_POP3/Naive/heatmap")
 #read table
 table.name <- read.csv(file="histogram.txt", header = T, sep = "")
 
 #limit the table to only show values > 1
 cut.off <- 1.0
-table.col <- (table.name$MP.WT)
+table.col <- (table.name$M03.ColonMP.Naive.WT.03)
 table.col.2 <- table.col[table.col > cut.off]
 
 
